@@ -1,0 +1,164 @@
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <ctime>
+#include <unistd.h>
+
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Options.hpp>
+#include <curlpp/Exception.hpp>
+
+#include <cxxtools/arg.h>
+#include <cxxtools/md5stream.h>
+
+#include <cxxtools/jsondeserializer.h>
+#include <cxxtools/serializationinfo.h>
+
+#include <tntdb/connection.h>
+#include <tntdb/connect.h>
+#include <tntdb/statement.h>
+
+#include "../rg_config.h"
+
+
+
+struct RG_struct {
+    int ITEM_ID;
+    long int NORMKURS;
+    long int SMKURS;
+};
+
+
+std::string g_time(){
+
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+
+    time (&rawtime);
+    timeinfo = localtime(&rawtime);
+
+    strftime(buffer,80,"%d-%m-%Y %I:%M:%S",timeinfo);
+    std::string str(buffer);
+
+    return str;
+}
+
+void operator<<= (cxxtools::SerializationInfo& si, const RG_struct& rg_struct){
+    
+    si.addMember("ITEM_ID") <<= rg_struct.ITEM_ID;
+    si.addMember("NORMKURS") <<= rg_struct.NORMKURS;
+    si.addMember("SMKURS") <<= rg_struct.SMKURS;
+}
+
+void operator>>= (const cxxtools::SerializationInfo& si, RG_struct& rg_struct){
+    
+    si.getMember("ITEM_ID") >>= rg_struct.ITEM_ID;
+    si.getMember("NORMKURS") >>= rg_struct.NORMKURS;
+    si.getMember("SMKURS") >>= rg_struct.SMKURS;
+}
+
+
+std::string get_data(){
+    
+    
+}
+
+std::string get_md5(std::string now_hash){
+    
+    
+}
+int main(int argc, char* argv[]){
+  
+  
+    cxxtools::Arg<bool> verbose(argc, argv, "--verbose");
+    cxxtools::Arg<bool> help(argc, argv, "--help");
+    
+    if (help){
+        
+        std::cout << "--verbose for Debug output" << std::endl;
+        exit(0);
+    }
+    
+    if (verbose) std::cout << g_time() << " :" << "Start Service" << std::endl;
+    
+    std::string diff_hash = "new";
+    std::string now_hash = "new1";
+    try{
+        
+       	while(1){
+       	    
+			curlpp::Cleanup cleaner;
+			curlpp::Easy request;
+			if (verbose) std::cout << g_time() << " :" << "Initial curlpp Constructs" << std::endl;
+			
+			request.setOpt(new curlpp::options::Url(RG_DATA_JSON));
+			if (verbose) std::cout << g_time() << " :" << "Get JSON data from Resources" << std::endl;
+			
+			
+			std::stringstream buffer;
+				
+			buffer << request;
+			if (verbose) std::cout << g_time() << " :" << "Write Request to Buffer" << std::endl;
+			
+			
+			//std::cout << request << std::endl;
+            cxxtools::Md5stream request_hash;
+            request_hash << request;
+            
+            if (verbose) std::cout << g_time() << " :" << "tdiffren Hash : " << diff_hash << std::endl;
+            if (verbose) std::cout << g_time() << " :" << "tnow     Hash : " << now_hash << std::endl;
+            now_hash = request_hash.getHexDigest();
+            if(diff_hash.c_str() != now_hash.c_str()){
+                
+                
+                tntdb::Connection conn = tntdb::connect("postgresql:host=localhost port=5433 dbname=rg-stats user=func0 password=func0");
+                if (verbose) std::cout << g_time() << " :" << "Connect to Database" << std::endl;
+            
+                tntdb::Statement st = conn.prepare("INSERT INTO mp_all(itemid, mprice, bmprice, idate) VALUES (:v1, :v2, :v3, current_date)");
+                if (verbose) std::cout << g_time() << " :" << "Prepare SQL Statment" << std::endl;
+			
+			    std::vector<RG_struct> vrg_struct;
+		        // read json mystruct struct from stdin:
+			    cxxtools::JsonDeserializer deserializer(buffer);
+			    deserializer.deserialize(vrg_struct);
+			    if (verbose) std::cout << g_time() << " :" << "Deserialize JSON data" << std::endl;
+
+			    for (unsigned n = 0; n < vrg_struct.size(); ++n){
+			    
+				    st.set("v1", vrg_struct[n].ITEM_ID)
+				      .set("v2", vrg_struct[n].NORMKURS)
+				      .set("v3", vrg_struct[n].SMKURS)
+				      .execute();
+				  
+				    if (verbose) std::cout << g_time() << " :" << "Insert data :" << n+1 << " of " << vrg_struct.size() << std::endl;
+	
+				    //std::cout << vmystruct[n].ITEM_ID <<  ' ';
+				    //std::cout << vmystruct[n].NORMKURS << ' ';
+				    //std::cout << vmystruct[n].SMKURS << ' ';
+			    }
+			    diff_hash = now_hash;
+			    
+			    if (verbose) std::cout << g_time() << " :" << "udiffren Hash : " << diff_hash << std::endl;
+                if (verbose) std::cout << g_time() << " :" << "unow     Hash : " << now_hash << std::endl;
+            }
+			else{
+			        if (verbose) std::cout << g_time() << " :" << "Request Hash is same! " << std::endl;
+			    }
+			    
+		    
+            
+			
+    		if (verbose) std::cout << g_time() << " :" << "Sleep for " << service_interval << " Seconds" << std::endl;
+			//sleep(service_interval);
+			sleep(60);
+		}
+		
+    }
+    catch (const std::exception& e){
+        
+        std::cerr << g_time() << e.what() << std::endl;
+    }
+    
+}

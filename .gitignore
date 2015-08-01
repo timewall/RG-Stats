@@ -1,11 +1,16 @@
-# Default location for output, needs to match output_dir's value found in config.yaml
-output/
+# Ignore directories
 
-# Temporary file directory
-tmp/
+thirdparty/*
+build/*
+
+# Ignore Files
+
+*.[oa]
+*~
 
 # Crash Log
 crash.log
 
-
 sec_config.h
+
+snippets

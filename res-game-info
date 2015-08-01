@@ -1,0 +1,205 @@
+
+Aktuelle Kurslisten
+Für eure Exceltabellen und sonstige, eigene Rentabilitäts-Tools, hier die Links zu den Datenstreams der aktuellen Itemkurse. Die Daten werden alle 15min aktualisiert:
+XML: http://www.resources-game.ch/exchange/kurseliste.xml
+CSV:  (Separator: ";" , inkl. Kopfzeile) http://www.resources-game.ch/exchange/kurseliste.csv
+JSON: http://www.resources-game.ch/exchange/kurseliste_json.txt
+
+
+
+[ ] Einheiten/Troops -> troops
+
+[ ]     Elitetruppe/Elite force -> elite_force
+            1 = 1439780 C, 60 stk. Waffen, 30 m3 Elektronik, 1 kg Gold
+
+[ ]     Privatarmee/Private army -> private_army
+            1 = 14394651 C, 120 stk Waffen, 60 m3 Elektronik, ? Schmuck
+
+[ ]     Gangster/Gangster -> gangster
+            1 = 1610169 C, 40 stk Waffen, 20 m3 Elektronik, 1 kg Silber
+
+[ ]     Wachhunde/Watch dogs -> watch_dogs
+            1 = 20246 C, 5 m3 Stahl, 5 stk. Fossilien
+
+[ ]     Kampfhunde/Attack dogs ->attack_dogs
+            1 = 202142 C, 10 m3 Stahl, 50 stk. Fossilien
+
+[ ]     Wachpersonal/Security Staff ->security_staff
+            1 = 160826 C, 5 stk. Waffen, 10 m3 Elektronik, 50 kg Silber
+
+
+[ ] Fundobjekte/Loot -> loot
+
+[ ]     Alte Reifen/Old tires -> old_tires
+[ ]     Altglas/Waste glass -> waste_glass
+[ ]     Altmetall/Scrap metal -> scrap_metal
+[ ]     Altöl/Used oil -> used_oil
+[ ]     Drohnenwrack/Drone wreckage -> drone_wreckage
+[ ]     Elektronikschrott/Electronic scrap -> electronic_scrap
+[ ]     Fossilien/Fossils -> fossils
+[ ]     Kunststoffschrott/Plastic scrap -> plastic_scrap
+[ ]     Kupfermünzen/Copper coins -> copper_coins
+[ ]     Riesendiamant/Giant diamond -> giant_diamond
+[ ]     Römische Münzen/Roman coins -> roman_coins
+[ ]     Tech-Upgrade 1/Tech-Upgrade 1 -> tech_upgrade_one
+[ ]     Tech-Upgrade 2/Tech-Upgrade 2 -> tech_upgrade_two
+[ ]     Tech-Upgrade 3/Tech-Upgrade 3 -> tech_upgrade_three
+[ ]     Tech-Upgrade 4/Tech-Upgrade 4 -> tech_upgrade_four
+[ ]     Wartungskit/Maintenance kit -> maintenance_kit
+
+
+[ ] Ressourcen/Resources -> resources
+
+[ ]     Bauxit/Bauxite -> bauxite
+[ ]     Eisenerz/Iron ore -> iron_ore
+[ ]     Golderz/Gold ore -> gold_ore
+[ ]     Ilmenit/Ilmenite -> ilmenite
+[ ]     Kalkstein/Limestone -> limestone
+[ ]     Kies/Gravel -> gravel
+[ ]     Kohle/Coal -> coal
+[ ]     Kupferkies/Chalcopyrite -> chalcopyrite
+[ ]     Lehm/Clay -> clay
+[ ]     Lithiumerz/Lithium ore -> lithium_ore
+[ ]     Quarzsand/Quartz sand -> quartz_sand
+[ ]     Rohdiamanten/Rough diamonds -> rough_diamonds
+[ ]     Rohöl/Crude oil -> crude_oil
+[ ]     Silbererz/Silver ore -> silver_ore
+
+
+[ ] Produkte/Products -> products
+
+[ ]     Aluminium/Aluminium -> aluminium
+            4 m3 = 5000 C, 24 m3 Bauxit
+
+[ ]     Batterien/Batteries -> batteries
+            10 MWh = 75000 C, 20 Lithium, 40 Kunststoffe, 10 aluminium
+
+[ ]     Beton/Concrete -> concrete
+            14 m3 = 20 C, 3 Kies, 2 Kalkstein
+
+[ ]     Düngemittel/Fertilizer -> fertilizer
+            11 m3 = 90 C, 8 Kalkstein
+
+[ ]     Elektronik/Electronics -> electronics
+            8 m3 = 5000 C, 4 Kunststoffe, 3 Kupfer, 1 Silizium
+
+[ ]     Foss. Brenstoffe/Fossil fuel -> fossil_fuel
+            4 m3 = 150 C, 4 Rohöl
+
+[ ]     Glas/Glass -> glass
+            8 m3 = 3000 C, 6 Quarzsand, 8 fossil_fuel, 4 Kalkstein
+
+[ ]     Gold/Gold -> gold
+            3 kg = 20000 C, 20 Golderz
+
+[ ]     Insektizide/Insecticides -> insecticides
+            35 m3 = 2400 C, 1 Kupfer, 3 Kalkstein
+
+[ ]     Kunststoffe/Plastics -> plastics
+            10 m3 = 400 C, 1 Rohöl
+
+[ ]     Kupfer/Copper -> copper
+            3 m3 = 2500 C, 9 Kupferkies
+
+[ ]     Lithium/Lithium -> lithium
+            5 m3 = 5000 C, 115 Lithiumerz
+
+[ ]     Medizintechnik/Medical technology -> medical_technology
+            10 m3 = 90000 C, 4 Titan, 2 Kunststoffe, 2 Elektronik
+
+[ ]     Scandrohnen/Scan drones -> scan_drones
+            1 stk = 25000000 C, 25 Elektronik, 50 Titan, 250 Batterien
+
+[ ]     Schmuck/Jewellery -> jewellery
+            2 kg = 50000 C, 1000 Rohdiamanten, 1 Gold, 1 Silber
+
+[ ]     Silber/Silver -> silver
+            50 kg = 10000 C, 8 Silbererz
+
+[ ]     Silizium/Silicon -> silicon
+            2 m3 = 49500 C, 20 Quarzsand, 1 Lehm, 5 fossil_fuel
+
+[ ]     Stahl/Steel -> steel
+            1 m3 = 350 C, 7 Eisenerz, 10 Kohle
+
+[ ]     Titan/Titanium -> titanium
+            4 m3 = 10000 C, 8 ilmenite
+
+[ ]     Waffen/Weapons -> weapons
+            25 stk = 250000 C, 1 Stahl, 1 aluminium, 1 Batterien
+
+[ ]     Ziegel/Bricks -> bricks
+            2 m3 = 10 C, 3 Lehm
+            
+##########################################################################################
+
+ItemID	Item	            ItemEN
+[x ] 57	    Alte Reifen	        Old tires
+[x ] 115	    Altglas	            Waste glass
+[x ] 70	    Altmetall	        Scrap metal
+[x ] 74	    Alt�l	            Used oil
+[ ] 32	    Aluminium	        Aluminium
+[ ] 93	    Batterien	        Batteries
+[ ] 12	    Bauxit	            Bauxite
+[ ] 7	    Beton	            Concrete
+[x ] 120	    Drohnenwrack	    Drone wreckage
+[ ] 22	    D�ngemittel	        Fertilizer
+[ ] 13	    Eisenerz	        Iron ore
+[ ] 66	    Elektronik	        Electronics
+[x ] 78	    Elektronikschrott	Electronic scrap
+[x ] 99	    Elitetruppe	        Elite Force
+[ ] 38	    Foss. Brennstoffe	Fossil fuel
+[x ] 41	    Fossilien	        Fossils
+[x ] 103	    Gangster	        Gangster
+[ ] 60	    Glas	            Glass
+[ ] 79	    Gold	            Gold
+[ ] 14	    Golderz	            Gold ore
+[ ] 49	    Ilmenit	            Ilmenite
+[ ] 28	    Insektizide	        Insecticides
+[ ] 20	    Kalkstein	        Limestone
+[x ] 102	    Kampfhunde	        Attack dogs
+[ ] 3	    Kies	            Gravel
+[ ] 8	    Kohle	            Coal
+[ ] 58	    Kunststoffe	        Plastics
+[x ] 77	    Kunststoffschrott	Plastic scrap
+[ ] 36	    Kupfer	            Copper
+[ ] 26	    Kupferkies	        Chalcopyrite
+[x ] 55	    Kupferm�nzen	    Copper coins
+[ ] 2	    Lehm	            Clay
+[ ] 92	    Lithium	            Lithium
+[ ] 90	    Lithiumerz      	Lithium ore
+[ ] 75	    Medizintechnik  	Medical technology Inc.
+[x ] 104	    Privatarmee	        Private army
+[ ] 53	    Quarzsand	        Quartz sand
+[x ] 42	    Riesendiamant	    Giant diamond
+[ ] 81	    Rohdiamanten	    Rough diamonds
+[ ] 10	    Roh�l	            Crude oil
+[x ] 40	    R�mische M�nzen	    Roman coins
+[ ] 117	    Scandrohne	        Scan drones
+[ ] 84	    Schmuck	            Jewellery
+[ ] 35	    Silber	            Silver
+[ ] 15	    Silbererz	        Silver ore
+[ ] 67	    Silizium        	Silicon
+[ ] 30	    Stahl	            Steel
+[x ] 44	    Techupgrade 1	    Techupgrade 1
+[x ] 45	    Techupgrade 2	    Techupgrade 2
+[x ] 46	    Techupgrade 3	    Techupgrade 3
+[x ] 48	    Techupgrade 4	    Techupgrade 4
+[ ] 51	    Titan	            Titanium
+[x ] 96	    Wachhunde	        Watch dogs
+[x ] 98	    Wachpersonal    	Security Staff
+[ ] 87	    Waffen          	Weapons
+[x ] 43	    Wartungskit	        Maintenance kit
+[ ] 24	    Ziegel	            Bricks
+
+
+Hauptquartierausbau:	Menge
+HQ 2	750,000	    	Kalkstein	        Kies	    Lehm	        Kohle
+HQ 3	1,500,000		Düngemittel	        Beton	    Ziegel	        Eisenerz
+HQ 4	2,000,000		Bauxit              Röhöl	    Kupferkies	    Quarzsand
+HQ 5	3,000,000		foss. Brennstoffe	Kupfer	    Stahl	        Insektizide
+HQ 6	4,000,000		Aluminium	        Lithiumerz	Ilmenit	        Lithium
+HQ 7	5,000,000		Glas	            Silizium	Batterien	    Kunststoff
+HQ 8	10,000,000		Silbererz	        Golderz	    Rohdiamanten	Titan
+HQ 9	25,000,000		Elektronik	        Silber	    Gold	        Medizintechnik
+HQ 10	?50000000		Waffen	            Schmuck	    Scandrohnen	    ???
