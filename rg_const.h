@@ -22,6 +22,8 @@
 
 // Konstanten
 
+#define ITEM_COUNT                                  57
+
 //////////////////////////////
 // Einheiten/Troops -> troops
 //////////////////////////////

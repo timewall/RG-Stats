@@ -29,10 +29,38 @@
 #include <cxxtools/arg.h>
 #include <cxxtools/md5stream.h>
 
+#include <cxxtools/jsondeserializer.h>
+#include <cxxtools/serializationinfo.h>
 
+#include <tntdb/connection.h>
+#include <tntdb/connect.h>
+#include <tntdb/statement.h>
 
+#include "../rg_const.h"
 #include "../rg_config.h"
 #include "../sec_config.h"
+
+
+struct RG_struct {
+    int ITEM_ID;
+    long int NORMKURS;
+    long int SMKURS;
+};
+
+
+void operator<<= (cxxtools::SerializationInfo& si, const RG_struct& rg_struct){
+    
+    si.addMember("ITEM_ID") <<= rg_struct.ITEM_ID;
+    si.addMember("NORMKURS") <<= rg_struct.NORMKURS;
+    si.addMember("SMKURS") <<= rg_struct.SMKURS;
+}
+
+void operator>>= (const cxxtools::SerializationInfo& si, RG_struct& rg_struct){
+    
+    si.getMember("ITEM_ID") >>= rg_struct.ITEM_ID;
+    si.getMember("NORMKURS") >>= rg_struct.NORMKURS;
+    si.getMember("SMKURS") >>= rg_struct.SMKURS;
+}
 
 std::string g_time(){
 
@@ -43,15 +71,13 @@ std::string g_time(){
     time (&rawtime);
     timeinfo = localtime(&rawtime);
 
-    strftime(buffer,80,"%d-%m-%Y %I:%M:%S",timeinfo);
+    strftime(buffer,80,"%I:%M:%S",timeinfo);
     std::string str(buffer);
 
     return str;
 }
 
-
-
-std::string get_md5(std::stringstream& buf){
+std::string get_md5(std::string buf){
 
     cxxtools::Md5stream hash;
     hash << buf;
@@ -62,30 +88,83 @@ std::string get_md5(std::stringstream& buf){
 
 int main(int argc, char* argv[]){
   
-  std::string diff_hash = "new";
+      
+    cxxtools::Arg<bool> verbose(argc, argv, "--verbose");
+    cxxtools::Arg<bool> help(argc, argv, "--help");
+    
+    if (verbose){ std::cout << g_time() << " :" << "Start Service" << std::endl; } 
+    if (verbose){ std::cout << g_time() << " :" << "Resources Game: [Constant Data] Version " << RG_CONST_VERSION << std::endl; }
+    
+    curlpp::Cleanup cleaner;
+	curlpp::Easy request;
+	if (verbose){ std::cout << g_time() << " :" << "Initial curlpp Constructs" << std::endl; }
+    
+    
+    std::string diff_hash = "Initial New ;)";
+    std::stringstream buffer;
+    
+    if (help){
+        
+        std::cout << "--verbose for Debug output" << std::endl;
+        exit(0);
+    }
+    
+    
     try{
         
        	while(1){
 
-			curlpp::Cleanup cleaner;
-			curlpp::Easy request;
+
+            buffer.str( std::string() );
+            if (verbose){ std::cout << g_time() << " :" << "Clear Buffer!" << std::endl; }
 			
 			request.setOpt(new curlpp::options::Url(RG_DATA_JSON));
-		
-			std::stringstream buffer;
-				
 			buffer << request;
-			std::cout << get_md5(buffer) << std::endl;
+			if (verbose){ std::cout << g_time() << " :" << "Get JSON data from Resources Game Server" << std::endl; }
 			
-			if (diff_hash != get_md5(buffer)){
+			
+            if (verbose){ std::cout << g_time() << " :" << "Diff Hash : " << diff_hash << std::endl; }
+            if (verbose){ std::cout << g_time() << " :" << "Now  Hash : " << get_md5(buffer.str()) << std::endl; }
+
+			if (diff_hash != get_md5(buffer.str())){
 			    
-			    std::cout << "eintrag" << std::endl;
-			    diff_hash = get_md5(buffer);
+                tntdb::Connection conn = tntdb::connect(PG_CONF_STRING);
+                if (verbose){ std::cout << g_time() << " :" << "Connect to Database" << std::endl; }
+            
+                tntdb::Statement st = conn.prepare("INSERT INTO mp_all(itemid, mprice, bmprice, idate) VALUES (:v1, :v2, :v3, current_date)");
+                if (verbose){ std::cout << g_time() << " :" << "Prepare SQL Statment" << std::endl; }
+			
+			    std::vector<RG_struct> vrg_struct;
+		        // read json mystruct struct from stdin:
+			    cxxtools::JsonDeserializer deserializer(buffer);
+			    deserializer.deserialize(vrg_struct);
+			    if (verbose){ std::cout << g_time() << " :" << "Deserialize JSON data" << std::endl; }
+
+                if (vrg_struct.size() != ITEM_COUNT){
+                    if (verbose){ std::cout << g_time() << " :" << "Wrong Item Count " << vrg_struct.size() << " of " << ITEM_COUNT << std::endl; }
+                    if (verbose){ std::cout << g_time() << " :" << "Please Update Resources Game Stats in the Next Time!" << std::endl; }
+                }
+                
+			    for (unsigned n = 0; n < vrg_struct.size(); ++n){
+			    
+				    st.set("v1", vrg_struct[n].ITEM_ID)
+				      .set("v2", vrg_struct[n].NORMKURS)
+				      .set("v3", vrg_struct[n].SMKURS)
+				      .execute();
+				  
+				    if (verbose){ std::cout << g_time() << " :" << "Insert data :" << n+1 << " of " << vrg_struct.size() << std::endl; }
+
+			    }
+			    
+			    diff_hash = get_md5(buffer.str());
+			   
 			}
 			else{
-			    std::cout << "same" << std::endl;
+			    if (verbose){ std::cout << g_time() << " :" << "Request Hash is same! " << std::endl; }
 			}
-           sleep(60);
+            
+            if (verbose){ std::cout << g_time() << " :" << "Sleep for " << ST_SE_SLEEP << " Seconds!" << std::endl; }
+            sleep(ST_SE_SLEEP);
 		}
 		
     }

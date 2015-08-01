@@ -23,4 +23,7 @@
 #define RG_DATA_CSV  "http://www.resources-game.ch/exchange/kurseliste.csv"
 #define RG_DATA_JSON "http://www.resources-game.ch/exchange/kurseliste_json.txt"
 
+
+#define ST_SE_SLEEP 300
+
 #endif // RG_CONFIG_H
