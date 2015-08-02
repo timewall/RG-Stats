@@ -19,3 +19,7 @@
 -----------------------
 > use BigINT
 * https://github.com/sercantutar/infint.git
+
+> SMTP Class 
+* http://www.codeproject.com/Articles/28806/SMTP-Client
+* http://www.codeproject.com/Articles/98355/SMTP-Client-with-SSL-TLS
