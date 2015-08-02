@@ -1,4 +1,6 @@
-###### RG-Stats
+###### RG-Stats Server
+
+
 
 ### System Environment:
 
@@ -15,7 +17,3 @@
     * https://github.com/jpbarrette/curlpp.git
 
 
-## ThirdParty (includes):
------------------------
-> use BigINT
-* https://github.com/sercantutar/infint.git
