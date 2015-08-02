@@ -11,20 +11,23 @@
 CC = g++
 CFLAGS = -O3 
 OUT_DIR = build
-LIBS = -lcxxtools -ltntdb -lcurlpp
+LIBS = -lcxxtools -ltntdb
 SUBDIRS = stats_server
 
 # first target entry is the target invoked when typing 'make'
-default: test
+default: rg-stats
 
-test: $(OUT_DIR)/rg-stats-server.cpp.o
+all:
+	./test 
+
+rg-stats: $(OUT_DIR)/rg-stats.cpp.o
 	@echo -n 'Linking test... '
-	@$(CC) $(CFLAGS) -o test $(OUT_DIR)/rg-stats-server.cpp.o $(LIBS)
+	@$(CC) $(CFLAGS) -o test $(OUT_DIR)/rg-stats.cpp.o $(LIBS)
 	@echo Done.
 
-$(OUT_DIR)/rg-stats-server.cpp.o: rg-stats-server.cpp ../rg_config.h
+$(OUT_DIR)/rg-stats.cpp.o: rg-stats.cpp ../rg_config.h
 	@echo -n 'Compiling rg-stats-server.cpp... '
-	@$(CC) $(CFLAGS) -o $(OUT_DIR)/rg-stats-server.cpp.o -c rg-stats-server.cpp
+	@$(CC) $(CFLAGS) -o $(OUT_DIR)/rg-stats.cpp.o -c rg-stats.cpp
 	@echo Done.
 
 submake: $(SUBDIRS)
@@ -42,11 +45,11 @@ debug:
 
 clean:
 	@echo -n 'Removing all temporary binaries... '
-	@rm -f test $(OUT_DIR)/*.o
+	@rm -f rg-stats $(OUT_DIR)/*.o
 	@echo Done.
 
 clear:
 	@echo -n 'Removing all temporary binaries... '
-	@rm -f test $(OUT_DIR)/*.o
+	@rm -f rg-stats $(OUT_DIR)/*.o
 	@echo Done.
 
