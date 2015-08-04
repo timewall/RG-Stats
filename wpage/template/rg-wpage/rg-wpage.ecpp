@@ -1,0 +1,28 @@
+<%pre>
+// put your includes here
+// #include "rg-wpage.h"
+</%pre>
+<%args>
+// define the query parameters
+// bar;
+</%args>
+<%session>
+// define your session scope variables here
+// std::string mySessionState;
+</%session>
+<%cpp>
+// put your C++ code here
+</%cpp>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ecpp application rg-wpage</title>
+    <meta charset="utf-8">
+    <meta name="description" content="rg-wpage application">
+    <link rel="stylesheet" href="/rg-wpage.css" type="text/css">
+  </head>
+  <body>
+    <h1>rg-wpage</h1>
+    <p>Hello world!</p>
+  </body>
+</html>

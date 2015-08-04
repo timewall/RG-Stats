@@ -25,21 +25,40 @@
 #include <tntdb/value.h>
 
 
+#include "rg_const.h"
+#include "rg_config.h"
+#include "sec_config.h"
+
 
 class market_price {
     
     private:
-    
-        bool validate_itemid( int itemID );
+        
+        tntdb::Connection conn;
+        
+        InfInt get_sql_data();
     
     public:
     
-        int get_mprice( int itemID );
-        int get_bmprice( int itemID );
-        int get_max_mprice( int itemID );
-        int get_min_bmprice( int itemID );
-        int get_average_mprice( int itemID);
-        std::string get_item_name( int itemID );
+        market_price( int itemID );
+        ~market_price();
+        // get data function Market Price
+        int get_mprice();
+        int get_average_mprice();
+        int get_max_mprice();
+        int get_min_mprice();
+        //std::vector<InfInt> get_all_mprice();
+        
+        // get data function Black Market Price
+        int get_bmprice();
+        int get_average_bmprice();
+        int get_max_bmprice();
+        int get_min_bmprice();
+        //std::vector<InfInt> get_all_bmprice();
+        
+        std::string get_item_name();
+        
+        std::vector<std::string> get_db_info();
     
     protected:
     

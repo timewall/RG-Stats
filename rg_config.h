@@ -23,6 +23,8 @@
 #define RG_DATA_CSV  "http://www.resources-game.ch/exchange/kurseliste.csv"
 #define RG_DATA_JSON "http://www.resources-game.ch/exchange/kurseliste_json.txt"
 
+// 0 German 1 English
+#define lang        0
 
 #define ST_SE_SLEEP 300
 
