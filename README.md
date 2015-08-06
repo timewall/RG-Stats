@@ -1,4 +1,4 @@
-###### RG-Stats
+###### RG-Stats [Asmodaeus]
 
 ### System Environment:
 
