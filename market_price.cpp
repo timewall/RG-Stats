@@ -19,56 +19,25 @@
 #include "market_price.h"
 
 
-InfInt market_price::get_sql_data(){
+    
+market_price::market_price( std::string db_conn, int itemID ){
+    
+    conn = tntdb::connect(db_conn);
+    
+    int validate_id[] = {3, 6, 8, 33};
+    
+    bool exists = std::find(std::begin(validate_id), std::end(validate_id), itemID) != std::end(validate_id);
+    
+    if(exists){
+        itemid = itemID;
+    }
+    else{
+        
+    }
     
 }
 
-std::string market_price::get_item_name(){
-    
-}
-        
-std::vector<std::string> market_price::get_db_info(){
-    
-}
-        
-market_price::market_price( int itemID ){
-    conn = tntdb::connect(PG_CONF_STRING);
-}
 market_price::~market_price(){
     
 }
-/*
-// get data function Market Price
-InfInt market_price::get_mprice(){
-    
-}
-InfInt market_price::get_average_mprice(){
-    
-}
-InfInt market_price::get_max_mprice(){
-    
-}
-InfInt market_price::get_min_mprice(){
-    
-}
-//std::vector<InfInt> market_price::get_all_mprice(){
-//    
-//}
-        
-// get data function Black Market Price
-InfInt market_price::get_bmprice(){
-    
-}
-InfInt market_price::get_average_bmprice(){
-    
-}
-InfInt market_price::get_max_bmprice(){
-    
-}
-InfInt market_price::get_min_bmprice(){
-    
-}
-//std::vector<InfInt> market_price::get_all_bmprice(){
-//    
-//}
-*/
+

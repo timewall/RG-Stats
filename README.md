@@ -23,3 +23,11 @@
 > SMTP Class 
 * http://www.codeproject.com/Articles/28806/SMTP-Client
 * http://www.codeproject.com/Articles/98355/SMTP-Client-with-SSL-TLS
+
+-------------------------------------------------------------------------------------------
+donate / financial support
+
+    * Bitcoin:  1PyNZgbyNAatVnjNy2JSVFTktRbAind8h5
+    * Litecoin: LMrcgbMx1uEaziFcXHNgBjjYzEoCcaoQKA
+    * Dogecoin: D6QgmxRjSxVgcw6ZsVr5XwBpSawAfqHv6z
+    * or InApp Credits ;D = "Lockdown"

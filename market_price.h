@@ -35,30 +35,29 @@ class market_price {
     private:
         
         tntdb::Connection conn;
-        
-        InfInt get_sql_data();
+        int itemid;
+
     
     public:
     
-        market_price( int itemID );
+        market_price( std::string db_conn, int itemID );
         ~market_price();
         // get data function Market Price
-        int get_mprice();
-        int get_average_mprice();
-        int get_max_mprice();
-        int get_min_mprice();
+        long int get_mprice();
+        long int get_average_mprice();
+        long int get_max_mprice();
+        long int get_min_mprice();
         //std::vector<InfInt> get_all_mprice();
         
         // get data function Black Market Price
-        int get_bmprice();
-        int get_average_bmprice();
-        int get_max_bmprice();
-        int get_min_bmprice();
+        long int get_bmprice();
+        long int get_average_bmprice();
+        long int get_max_bmprice();
+        long int get_min_bmprice();
         //std::vector<InfInt> get_all_bmprice();
         
         std::string get_item_name();
-        
-        std::vector<std::string> get_db_info();
+
     
     protected:
     
