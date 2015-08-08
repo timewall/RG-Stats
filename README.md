@@ -24,6 +24,10 @@
 * http://www.codeproject.com/Articles/28806/SMTP-Client
 * http://www.codeproject.com/Articles/98355/SMTP-Client-with-SSL-TLS
 
+
+## Wev of Interest
+
+    *https://www.hakkalabs.co/logs
 -------------------------------------------------------------------------------------------
 donate / financial support
 
