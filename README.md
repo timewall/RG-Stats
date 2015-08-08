@@ -27,7 +27,7 @@
 
 ## Wev of Interest
 
-    *https://www.hakkalabs.co/logs
+    *https://www.hakkalabs.co/
 -------------------------------------------------------------------------------------------
 donate / financial support
 
