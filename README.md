@@ -4,7 +4,9 @@ ist ein kleines Projekt rund um das Spiel "Resources Game" für Android.
 Eine Wirtschaftssimulation, gekreuzt mit Outdoor Spiel Spaß.
 
 [Resources Game - Homepage](http://www.resources-game.ch/de/)
+
 [Google Play](https://play.google.com/store/apps/details?id=ch.pala.resources&hl=de)
+
 [G+ Communitie](https://plus.google.com/communities/112958899113930417808)
 
 Dieses Projekt erfasst eine Statistik und wertet diese übersichtlich aus,
@@ -48,16 +50,16 @@ Einige Spieler bewerkstelligen dies bereits mit einfachen bis sehr Komplexen Exc
 
 Weitere Information erhaltet hier in den README's der einzelnen unter Projekten:
 
-    * [Stats Server](../stats_server/README.md)
-    * [wpage](../wpage/README.md)
-    * [ThirdParty](../thirdparty/README.md)
+    [Stats Server](../stats_server/README.md)
+    [wpage](../wpage/README.md)
+    [ThirdParty](../thirdparty/README.md)
     
-        * [Fundobjekte/loot](../loot/README.md)
-        * [Produkte/products](../products/README.md)
-        * [Einheiten/troops](../troops/README.md)
-        * [Ressourcen/resources](../resources/README.md)
+        [Fundobjekte/loot](../loot/README.md)
+        [Produkte/products](../products/README.md)
+        [Einheiten/troops](../troops/README.md)
+        [Ressourcen/resources](../resources/README.md)
         
-    * [Alle Screenshots](../Screenshots/README.md)
+    [Alle Screenshots](../Screenshots/README.md)
         
         
 ## Screenshots: 
