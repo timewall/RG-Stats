@@ -50,16 +50,16 @@ Einige Spieler bewerkstelligen dies bereits mit einfachen bis sehr Komplexen Exc
 
 Weitere Information erhaltet hier in den README's der einzelnen unter Projekten:
 
-    [Stats Server](../stats_server/README.md)
-    [wpage](../wpage/README.md)
-    [ThirdParty](../thirdparty/README.md)
+[Stats Server](../stats_server/README.md)
+[wpage](../wpage/README.md)
+[ThirdParty](../thirdparty/README.md)
     
-        [Fundobjekte/loot](../loot/README.md)
-        [Produkte/products](../products/README.md)
-        [Einheiten/troops](../troops/README.md)
-        [Ressourcen/resources](../resources/README.md)
+[Fundobjekte/loot](../loot/README.md)
+[Produkte/products](../products/README.md)
+[Einheiten/troops](../troops/README.md)
+[Ressourcen/resources](../resources/README.md)
         
-    [Alle Screenshots](../Screenshots/README.md)
+[Alle Screenshots](../Screenshots/README.md)
         
         
 ## Screenshots: 
